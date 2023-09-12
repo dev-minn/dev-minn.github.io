@@ -95,7 +95,7 @@ analytics:
 author:
   name             : ""
   avatar           : "/assets/images/profile.png" # 프로필 이미지
-  bio              : "Today I Learned" 
+  bio              : "Today I Learned"
   location         : "Republic of Korea"
   email            : ""
   links:
