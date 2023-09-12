@@ -8,9 +8,9 @@ title                    : "MIN's TIL" # Meta 태그에 들어가는 영역 , ma
 title_separator          : "&#124;" # 타이틀 사이 구분자 <title>Welcome to Jekyll | Minimal Mistakes</title> 해당 형식으로 들어갑니다.
 subtitle                 : "" # 타이틀 아래에 나올 작은 글씨 
 name                     : "Dev-minn" # 맨 하단 이름 찍히는 영역
-description              : "Dev-minn IT BLOG" # Meta 태그에 들어가는 영역 
+description              : "Dev-minn TIL" # Meta 태그에 들어가는 영역 
 url                      : "https://dev-minn.github.io/" # GitBlog 호스트 주소
-baseurl                  : "https://dev-minn.github.io/blog" # subPath https://dev-minn.github.io/blog라고 하고 싶을 시 "/blog" 라고 적는다.
+baseurl                  : "" # subPath https://dev-minn.github.io/blog라고 하고 싶을 시 "/blog" 라고 적는다.
 repository               : "dev-minn/dev-minn.github.io" # GitHub username/repo-name  
 teaser                   : # "/assets/images/senior-couple-4723737_640.jpg" # 홈페이지 기본 티져 이미지
 logo                     : # 타이틀 옆에 작게 들어갈 이미지.
