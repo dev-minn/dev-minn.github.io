@@ -2,7 +2,7 @@
 title: 디자인패턴 기초 개념
 layout: single
 categories:
-- Design Pattern
+- DesignPattern
 tag:
 - Head First Design Pattern
 description: 디자인 패턴 기초 개념 설명
