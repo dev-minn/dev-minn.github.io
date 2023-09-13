@@ -1,5 +1,5 @@
 ---
-title: 디자인패턴 기초 개념
+title: 디자인패턴 기초 개념22
 layout: single
 categories:
 - DesignPattern
