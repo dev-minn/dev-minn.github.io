@@ -76,7 +76,7 @@
         {% endfor %}
 
         {% unless include.item_class == blank %}
-            {% assign space = space | prepend: '    ' %}
+            {% capture listItemClass %}{:.{{ include.item_class | replace: '%level%', headerLevel }}}{% endcapture %}
         {% endunless %}
 
         {% capture heading_body %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
