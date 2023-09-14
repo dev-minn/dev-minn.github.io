@@ -64,8 +64,18 @@ date: 2023-09-14
 
 ## 📌 예제
 
-- Publisher(이벤트 발생 객체) 와 Observer 를 인터페이스로 구현해 Observer Pattern 구현
-    - Observer 구현체는 외부에서 직접적으로 접근하지 않고 오로지 Publisher 를 통해 접근
-    - Observer 구현체가 이벤트를 감지한다는 것은 Publisher 에서 이벤트가 발생했을 때
-    - notifyObservers() 를 통해 모든 Observer 목록의 notify() 를 실행해준다는 뜻
+
+-- Publisher(이벤트 발생 객체) 와 Observer 를 인터페이스로 구현해 Observer Pattern 구현<br>
+    -- Observer 구현체는 외부에서 직접적으로 접근하지 않고 오로지 Publisher 를 통해 접근<br>
+    -- Observer 구현체가 이벤트를 감지한다는 것은 Publisher 에서 이벤트가 발생했을 때<br>
+    -- notifyObservers() 를 통해 모든 Observer 목록의 notify() 를 실행해준다는 뜻<br>
 {: .notice--info}
+
+
+> CODE
+
+```java
+public static int lcm(int a, int b, int gcd) {
+  return (a * b) / gcd
+}
+```
