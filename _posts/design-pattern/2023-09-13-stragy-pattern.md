@@ -67,7 +67,6 @@ public class Stage {
 }
 ```
 
-<br>
 
 > 💡 <b>객체지향설계 5원칙 > 개방-폐쇄 원칙</b>
 >
@@ -81,16 +80,14 @@ public class Stage {
 ### 전략패턴 리팩토링
 
 
-> STEP 1. 전략에 대한 인터페이스를 먼저 구현
-
+#### STEP 1. 전략에 대한 인터페이스를 먼저 구현
 ```java
 public interface AttackStrategy {
     String getAttackMessage();
 }
 ```
 
-> STEP 2. 각 공격전략을 클래스로 구현(각각의 클래스는 모두 AttackStrategy 전략의 구현체)
-
+#### STEP 2. 각 공격전략을 클래스로 구현(각각의 클래스는 모두 AttackStrategy 전략의 구현체)
 ```java
 public class WarriorAttackStrategy implements AttackStrategy {
     public String getAttackMessage() {
@@ -115,8 +112,9 @@ public class MagicianAttackStrategy implements AttackStrategy {
 }
 ```
 
-> STEP 3. 전략에 대한 구현체를 작성했다면, Character 클래스는 아래와 같이 변경
+<br>
 
+#### STEP 3. 전략에 대한 구현체를 작성했다면, Character 클래스는 아래와 같이 변경
 ```java
 public class Character2 {
 
@@ -133,8 +131,9 @@ public class Character2 {
 }
 ```
 
-> STEP 4. 개선된 코드는 아래와 같이 사용
+<br>
 
+#### STEP 4. 개선된 코드는 아래와 같이 사용
 ```java
 Character2 warrior2 = new Character2(new WarriorAttackStrategy());
 Character2 thief2 = new Character2(new ThiefAttackStrategy());
@@ -143,6 +142,7 @@ Character2 magician2 = new Character2(new MagicianAttackStrategy());
 warrior2.attack();
 thief2.attack();
 magician2.attack();
+
 ```
 
 <br>
