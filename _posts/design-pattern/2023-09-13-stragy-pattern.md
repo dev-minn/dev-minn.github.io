@@ -26,8 +26,6 @@ date: 2023-09-13
 
 ## 📌 예제
 
-<br>
-
 ### if-else 구현 
 
 ```java
@@ -51,9 +49,7 @@ public class Character {
         } else if(job.equals("magician")) {
             System.out.println("magician!!!");
         }
-
-    }
-    
+    } 
 }
 ```
 
@@ -77,6 +73,7 @@ public class Stage {
 >  - 개방-폐쇄 원칙 ? 
 >  - 객체의 확장은 개방적으로, 객체의 수정은 폐쇄적으로 대해야 한다는 원칙
 >  - 기능이 변하거나 확장되는 것은 가능하지만 그 과정에서 기존의 코드가 수정되지 않아야 함
+{: .notice--info}
 
 <br>
 
@@ -89,8 +86,6 @@ public interface AttackStrategy {
     String getAttackMessage();
 }
 ```
-
-<br>
 
 #### STEP 2. 각 공격전략을 클래스로 구현(각각의 클래스는 모두 AttackStrategy 전략의 구현체)
 ```java
@@ -117,8 +112,6 @@ public class MagicianAttackStrategy implements AttackStrategy {
 }
 ```
 
-<br>
-
 #### STEP 3. 전략에 대한 구현체를 작성했다면, Character 클래스는 아래와 같이 변경
 ```java
 public class Character2 {
@@ -135,8 +128,6 @@ public class Character2 {
     
 }
 ```
-
-<br>
 
 #### STEP 4. 개선된 코드는 아래와 같이 사용
 ```java
