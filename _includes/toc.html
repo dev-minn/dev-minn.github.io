@@ -71,14 +71,12 @@
         {% assign header = _workspace[0] | replace: _hAttrToStrip, '' %}
 
         {% assign space = '' %}
-        {% for i in (1..indentAmount) %}
+        {% for i in (1..15) %}
             {% assign space = space | prepend: '    ' %}
         {% endfor %}
 
         {% unless include.item_class == blank %}
-            {% if include.class %}
-                {% capture listItemClass %}{:.{{ include.item_class | replace: '%level%', headerLevel }}}{% endcapture %}
-            {% endif %}
+            {% capture listItemClass %}{:.{{ include.item_class | replace: '%level%', headerLevel }}} {% endcapture %}
         {% endunless %}
 
         {% capture heading_body %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
