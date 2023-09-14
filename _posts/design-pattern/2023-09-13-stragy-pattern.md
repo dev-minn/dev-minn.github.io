@@ -79,7 +79,7 @@ public class Stage {
 ### 전략패턴 리팩토링
 
 
-- 전략에 대한 인터페이스를 먼저 구현
+#### 전략에 대한 인터페이스를 먼저 구현
 ```java
 public interface AttackStrategy {
     String getAttackMessage();
@@ -88,7 +88,7 @@ public interface AttackStrategy {
 
 <br>
 
-- 각 공격전략을 클래스로 구현(각각의 클래스는 모두 AttackStrategy 전략의 구현체)
+#### 각 공격전략을 클래스로 구현(각각의 클래스는 모두 AttackStrategy 전략의 구현체)
 ```java
 public class WarriorAttackStrategy implements AttackStrategy {
     public String getAttackMessage() {
@@ -96,6 +96,7 @@ public class WarriorAttackStrategy implements AttackStrategy {
     }
 }
 ```
+
 ```java
 public class ThiefAttackStrategy implements AttackStrategy {
     public String getAttackMessage() {
@@ -103,6 +104,7 @@ public class ThiefAttackStrategy implements AttackStrategy {
     }
 }
 ```
+
 ```java
 public class MagicianAttackStrategy implements AttackStrategy {
     public String getAttackMessage() {
@@ -113,7 +115,7 @@ public class MagicianAttackStrategy implements AttackStrategy {
 
 <br>
 
-- 전략에 대한 구현체를 작성했다면, Character 클래스는 아래와 같이 변경
+#### 전략에 대한 구현체를 작성했다면, Character 클래스는 아래와 같이 변경
 ```java
 public class Character2 {
 
@@ -132,7 +134,7 @@ public class Character2 {
 
 <br>
 
-- 개선된 코드는 아래와 같이 사용
+#### 개선된 코드는 아래와 같이 사용
 ```java
 Character2 warrior2 = new Character2(new WarriorAttackStrategy());
 Character2 thief2 = new Character2(new ThiefAttackStrategy());
@@ -141,6 +143,7 @@ Character2 magician2 = new Character2(new MagicianAttackStrategy());
 warrior2.attack();
 thief2.attack();
 magician2.attack();
+
 ```
 
 <br>
@@ -148,8 +151,9 @@ magician2.attack();
 ## 📌 정리
 
 ✅ 알고리즘군을 정의하고 캡슐화해서 각각의 알고리즘군을 수정해서 쓸 수 있게 해줌<br>
-✅ 비슷한 동작을 하지만 다르게 구현되어 있는 행위(전략)들을 공통의 인터페이스를 구현하는 각각의 클래스로 구현하고, 동적으로 바꿀 수 있도록 하는 패턴<br>
-✅ 전략에 대한 인터페이스를 먼저 구현 후 각각의 전략 패턴을 클래스로 구현<br>
+✅ 전략패턴 STEP<br>
+   1️⃣ 비슷한 동작을 하지만 다르게 구현되어 있는 행위(전략)들을 공통의 인터페이스로 구현<br>
+   2️⃣ 각각의 전략 패턴을 클래스로 구현<br>
 
 <br><br><br>
 
