@@ -105,3 +105,145 @@ public interface Observer {
     public void notify(boolean play);
 }
 ```
+
+#### STEP 3. 구현체 생성
+
+>  Publisher 구현체인 PlayController 객체 생성
+
+```java
+public class PlayController implements Publisher {
+    
+    private List<Observer> observers = new ArrayList<>();
+    private boolean play;
+    private Observer myOb;
+
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void deleteObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    // Observer 들에게 변경사항을 전달
+    @Override
+    public void notifyObservers() {
+
+        // Observer 목록들에게 이벤트 전달
+        for(int i=0; i<observers.size(); i++) {
+            observers.get(i).notify(play);
+        }
+    }
+
+    // 이벤트 발생 함수
+    public void setFlag(boolean play) {
+        this.play = play;
+        notifyObservers();
+    }
+
+    public boolean getFlag() {
+        return play;
+    }
+}
+```
+
+> Observer 구현체인 ObserverA, ObserverB 를 생성
+
+```java
+public class ObserverA implements Observer {
+    
+    private boolean bPlay;
+    private Publisher publisher;
+
+    public ObserverA(Publisher publisher) {
+        this.publisher = publisher;
+        publisher.addObserver(this);
+    }
+
+    @Override
+    public void notify(boolean play) {
+        this.bPlay = play;
+        myActControl();
+    }
+
+    public void myActControl() {
+        if(bPlay) {
+            System.out.println("myClassA : 동작을 시작합니다.");
+        } else {
+            System.out.println("myClassA : 동작을 정지합니다.");
+        }
+    }
+}
+```
+
+```java
+public class ObserverB implements Observer {
+    
+    private boolean bPlay;
+    private Publisher publisher;
+
+    // 객체를 생성할 때
+    public ObserverB(Publisher publisher) {
+        this.publisher = publisher;
+        publisher.addObserver(this);
+    }
+
+    // 이벤트 감지
+    @Override
+    public void notify(boolean play) {
+        this.bPlay = play;
+        myActControl();
+    }
+
+    // 행위
+    public void myActControl() {
+        if(bPlay) {
+            System.out.println("myClassB : 동작을 시작합니다.");
+        } else {
+            System.out.println("myClassB : 동작을 정지합니다.");
+        }
+    }
+}
+```
+
+> Main 테스트 프로세스
+>   - Observer 구현체는 생성자를 통해 publisher 객체에 등록 됨
+>   - PlayController 가 setFlag() 를 통해 이벤트를 발생시키고, Observer 구현체들의 notify 를 실행(이벤트감지)
+>   - Observer 구현체들은 myActController() 를 통해 이벤트 감지의 따른 행위를 실행
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        PlayController playController = new PlayController();
+        Observer ob1 = new ObserverA(playController);
+        Observer ob2 = new ObserverB(playController);
+
+        // 이벤트 발생
+        playController.setFlag(true);
+
+        // Observer 삭제
+        playController.deleteObserver(ob1);
+        playController.setFlag(false);
+
+    }
+}
+```
+
+> 실행결과
+```
+myClassA : 동작을 시작합니다.
+myClassB : 동작을 시작합니다.
+myClassB : 동작을 정지합니다.
+```
+
+
+
+<br><br><br>
+
+>  출처
+- 헤드퍼스트 디자인 패턴
+- https://inpa.tistory.com/
+- https://cjw-awdsd.tistory.com/44
