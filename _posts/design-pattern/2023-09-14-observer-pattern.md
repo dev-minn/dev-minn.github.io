@@ -256,6 +256,6 @@ myClassB : 동작을 정지합니다.
 ## 📌 참고
 
 >  출처
-- 헤드퍼스트 디자인 패턴 aa
+- 헤드퍼스트 디자인 패턴
 - https://inpa.tistory.com/
 - https://cjw-awdsd.tistory.com/44
