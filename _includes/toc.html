@@ -138,7 +138,7 @@
         {% else %}
             {% capture listItem %}{{ anchorBody }}{% endcapture %}
         {% endif %}
-        currLevel/lastLevel
+        
         {% if currLevel > lastLevel %}
             {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}{{ subMenuClass }}>{% endcapture %}
         {% elsif currLevel < lastLevel %}
@@ -161,7 +161,7 @@
 
     {% assign repeatCount = minHeader | minus: 1 %}
     {% assign repeatCount = lastLevel | minus: repeatCount %}
-    {% for i in (1..repeatCount) %}
+    {% for i in (1..indentAmount) %}
         {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
     {% endfor %}
 
