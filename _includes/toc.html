@@ -144,7 +144,7 @@
         {% elsif currLevel < lastLevel %}
             {% assign repeatCount = lastLevel | minus: currLevel %}
 
-            {% for i in (1..10) %}
+            {% for i in (1..indentAmount) %}
                 {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
             {% endfor %}
 
@@ -161,7 +161,7 @@
 
     {% assign repeatCount = minHeader | minus: 1 %}
     {% assign repeatCount = lastLevel | minus: repeatCount %}
-    {% for i in (1..indentAmount) %}
+    {% for i in (1..repeatCount) %}
         {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
     {% endfor %}
 
