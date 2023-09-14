@@ -77,6 +77,7 @@ date: 2023-09-14
 #### STEP 1. 관찰자 인터페이스 구현
 
 - Publisher 에는 다음과 같은 메소드가 정의되어 있음
+
 ```java
 public interface Publisher {
     
@@ -95,6 +96,7 @@ public interface Publisher {
 #### STEP 2. Observer 인터페이스 구현
 
 - Observer 에는 다음과 같은 메소드만 정의되어 있음
+
 ```java
 public interface Observer {
     
