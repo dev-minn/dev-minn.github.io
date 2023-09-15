@@ -44,6 +44,9 @@ date: 2023-09-14
 - 클라이언트가 구성 요소의 구체적인 형식에 의존하는 경우는 예외
 - 데코레이터 패턴을 사용하면 자잘한 객체가 매우 많이 추가될 수 있고, 데코레이터를 너무 많이 사용하면 코드가 필요 이상으로 복잡해짐
 
+
+<img src="assets/images/03001.png" witdh="600" height="400">
+
 <br>
 
 ## 📌 사용시기
@@ -80,12 +83,248 @@ date: 2023-09-14
 
 ## 📌 예제
 
+> 💡 <b>예제</b>
+>
+>  - Data 클래스를 멀티쓰레드 환경에서도 사용할 수 있도록 동기화 처리
+{: .notice--info}
+
+### 상속을 통한 구현
+
+#### STEP 1. MyData 클래스 구현
+
+```java
+public class MyData {
+    private int data;
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public int getData() {
+        return data;
+    }
+}
+```
+
+#### STEP 2. MyData 클래스를 상속해 메서드를 오버라이딩 해 동기화 처리
+
+```java
+public class SynchronizedData extends MyData {
+    
+    private int data;
+
+    public void setData(int data) {
+        // synchronized (대상객체) { ... } 
+        synchronized(this) {
+            this.data = data;
+        }
+    }
+
+    public int getData() {
+        synchronized(this) {
+            return data;
+        }
+    }
+}
+```
+
+```java
+public class Client {
+    public static void main(String[] args) {
+        SynchronizedData data = new SynchronizedData();
+        data.setData(1);
+        System.out.println(data.getData());
+    }
+}
+```
+
+<br>
+
+### 데코레이터 패턴 리팩토링
+
 > 💡 <b>데코레이터패턴 예제</b>
 >
 >  - Data 클래스를 멀티쓰레드 환경에서도 사용할 수 있도록 동기화 처리
 {: .notice--info}
 
+#### STEP 1. 원본 객체와 장식된 객체 모두를 묶는 인터페이스
+
+> 동기화 처리가 안된 data 클래스와 동기화 처리가 된 data 클래스 모두를 묶어두는 IData 인터페이스 선언
+
+```java
+public interface IData {
+    void setData(int data);
+    int getData();
+}
+```
+
+#### STEP 2. 장식될 원본 객체
+
+```java
+public class Mydata2 implements IData {
+    private int data;
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public int getData() {
+        return data;
+    }
+}
+```
+
+#### STEP 3. 데코레이터를 추상화한 MyDataDecorator 선언
+
+> 데코레이터를 추상화한 MyDataDecorator 선언
+
+```java
+public class MyDataDecorator implements IData {
+
+    // 최상위 인터페이스 타입으로 장식할 원본 객체 선언
+    private IData mydataObj;
+
+    MyDataDecorator(IData mydataObj) {
+        this.mydataObj = mydataObj;
+    }
+
+    public void setData(int data) {
+        this.mydataObj.setData(data);
+    }
+
+    public int getData() {
+        return mydataObj.getData();
+    }
+}
+```
+
 <br>
 
-### 패턴 구현
+> 💡 <b>추상클래스로 선언한 이유?</b>
+>
+>  - 동기화 처리 외에 또 다른 처리 기능이 추가되었을 때 유연하게 확장시키기 위해서
+>  - 각 장식자 클래스의 중복되는 코드를 묶기 위해서
+{: .notice--info}
 
+
+#### STEP 4-1. 장식자 클래스
+
+> MyDataDecorator 추상 클래스를 상속하는 서브 장식 클래스 구현체 SynchronizedDecorator 를 선언
+
+```java
+public class SynchronizedDecorator extends MyDataDecorator {
+    
+    SynchronizedDecorator(IData mydataObj) {
+        super(mydataObj);
+    }
+
+    public void setData(int data) {
+        synchronized(this) {
+            System.out.println("동기화된 data 처리를 시작합니다.");
+            // 부모 메서드를 호출함으로써 자신을 감싸고 있는 장식자의 메서드를 호출
+            super.setData(data);        
+            System.out.println("동기화된 data 를 처리를 완료하였습니다.");
+        }
+    }
+
+    public int getData() {
+        int result = 0;
+        synchronized(this) {
+            System.out.println("동기화된 data 처리를 시작합니다.");
+            result = super.getData();
+            System.out.println("동기화된 data 를 처리를 완료하였습니다.");
+        }
+        return result;
+    }
+}
+```
+
+#### STEP 4-2. 부가적 장식자 클래스
+
+> 나중에 기능 추가 요구사항이 와도 코드 수정없이 유연하게 클래스를 정의
+
+```java
+public class AnotherSkillDecorator extends MyDataDecorator {
+
+    private IData mydataObj;
+
+    AnotherSkillDecorator(IData mydataObj) {
+        super(mydataObj);
+    }
+
+    public void setData(int data) {
+        long stratTime = System.nanoTime();
+        super.setData(data);
+        long endTime = System.nanoTime();
+        long durationTimeSec = endTime - stratTime;
+        System.out.println(durationTimeSec + "n/s");
+    }
+
+    public int getData() {
+       long stratTime = System.nanoTime();
+       int result = super.getData();
+       long endTime = System.nanoTime();
+       long durationTimeSec = endTime - stratTime;
+       System.out.println(durationTimeSec + "n/s");
+       return result;
+    }
+}
+```
+
+> Client 클래스 프로세스
+
+```java
+public class Client {
+    public static void main(String[] args) {
+        // 동시성이 필요없을 때
+        IData iData = new Mydata2();
+
+        // 동시성이 필요할 때
+        IData dataSync = new SynchronizedDecorator(iData);
+        dataSync.setData(1);
+        System.out.println(dataSync.getData());
+
+        // 시간 측정하고 싶을 때
+        IData another1 = new AnotherSkillDecorator(iData);
+        another1.setData(1);
+
+        // 동시성이 적용된 로직 안의 코드를 시간 측정하고 싶을 때
+        IData another2 = new SynchronizedDecorator(new AnotherSkillDecorator(iData));
+        another2.setData(1);
+
+        // 동시성이 적용된 코드를 시간 측정하고 싶을 때
+        IData another3 = new AnotherSkillDecorator(new SynchronizedDecorator(iData));
+        another3.setData(1);
+    }
+}
+```
+
+> 실행결과
+
+```
+동기화된 data 처리를 시작합니다.       
+동기화된 data 를 처리를 완료하였습니다.
+동기화된 data 처리를 시작합니다.
+동기화된 data 를 처리를 완료하였습니다.
+1
+1500n/s
+동기화된 data 처리를 시작합니다.
+800n/s
+동기화된 data 를 처리를 완료하였습니다.
+동기화된 data 처리를 시작합니다.
+동기화된 data 를 처리를 완료하였습니다.
+904500n/s
+```
+
+
+<br>
+
+## 📌 정리
+
+<br><br><br>
+
+## 📌 참고
+
+>  출처
+- 헤드퍼스트 디자인 패턴
+- https://inpa.tistory.com/
