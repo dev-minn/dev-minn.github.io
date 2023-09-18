@@ -52,6 +52,7 @@ date: 2023-09-15
 ### 피자주문
 
 > 피자주문 메서드
+
 ```java
 Pizza orderPizza(String type) {
 
@@ -151,6 +152,7 @@ public class PizzaStore {
 ```
 
 > 구조
+
 <img src="/assets/images/04001.png" witdh="600" height="400">
 
 <br>
@@ -169,6 +171,7 @@ public class PizzaStore {
 #### STEP 1. 추상 클래스 생성
 
 > PizzaStore 추상 클래스에 피자 생성 추상 메서드로 선언하고, 지역별 스타일에 맞게 PizzaStore 의 서브클래스를 만듬 
+
 ```java
 public abstract class PizzaStore {
 
@@ -193,6 +196,7 @@ public abstract class PizzaStore {
 #### STEP 2. 서브클래스 생성
 
 > PizzaStore 의 서브클래스를 만들고 지역별 특성에 맞게 createPizza() 메서드 구현
+
 ```java
 public class NYPizzaStore extends PizzaStore {
     
@@ -229,6 +233,7 @@ public class ChicagoPizzaStore extends PizzaStore {
 #### STEP 3. 지역별 피자 스타일 클래스 생성
 
 > PizzaStore 별로 피자 스타일이 다름
+
 ```java
 public class NYStyleCheesePizza extends Pizza {
     
@@ -260,6 +265,7 @@ public class ChicagoStyleCheesePizza extends Pizza {
 #### STEP 4. 피자 클래스 생성
 
 > 피자 클래스
+
 ```java
 public class Pizza {
     String name;
@@ -303,6 +309,7 @@ public class Pizza {
 #### STEP 5. 피자 주문
 
 - 피자 주문
+
 ```java
 public class Client {
     
@@ -326,6 +333,7 @@ public class Client {
 ```
 
 > 실행결과
+
 ```
 --------------------------------------------
 Ethan ordered a null
@@ -356,6 +364,7 @@ Hun ordered a Chicago Style Deep Dish Cheese Pizza
 <br>
 
 - 병렬 클래스 계층구조
+
 <img src="/assets/images/04002.png" witdh="600" height="400">
 
 <br><br>
@@ -402,6 +411,7 @@ Hun ordered a Chicago Style Deep Dish Cheese Pizza
 ### STEP 1. 팩토리용 인터페이스 정의
 
 > 모든 원재료를 생산하는 팩토리용 인터페이스 정의
+
 ```java
 public interface PizzaIngredientFactory {
     public Dough createDough();
@@ -416,6 +426,7 @@ public interface PizzaIngredientFactory {
 ### STEP 2. 지역별 원재료 팩토리 구현
 
 > 뉴욕 원재료 팩토리 구현
+
 ```java
 public class NYPizzaIngredientFactory implements PizzaIngredientFactory{
 
@@ -448,6 +459,7 @@ public class NYPizzaIngredientFactory implements PizzaIngredientFactory{
 ```
 
 > 시카고 원재료 팩토리 구현
+
 ```java
 public class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory{
     
@@ -483,6 +495,7 @@ public class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory{
 ### STEP 3. 팩토리에서 생산한 원재료만 사용
 
 > Pizza 클래스가 팩토리에서 생산한 원재료만 사용
+
 ```java
 public abstract class Pizza {
     String name;
@@ -589,6 +602,7 @@ public class ClamPizza extends Pizza {
 ```
 
 ### STEP 5. 각 지역별로 재료 공장의 레퍼런스 전달
+
 ```java
 public class NYPizzaStore extends PizzaStore {
  
@@ -691,6 +705,7 @@ public class Client {
 ```
 
 > 구조
+
 <img src="/assets/images/04003.png" witdh="600" height="400">
 
 <br><br>
