@@ -1,5 +1,5 @@
 ---
-title:  "Chapter 3. 데코레이터 패턴" 
+title:  "Chapter 03. 데코레이터 패턴" 
 
 categories:
   -  Design Pattern

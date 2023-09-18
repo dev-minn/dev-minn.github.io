@@ -1,5 +1,5 @@
 ---
-title:  "Chapter 0. 디자인 패턴" 
+title:  "Chapter 00. 디자인 패턴" 
 
 categories:
   -  Design Pattern

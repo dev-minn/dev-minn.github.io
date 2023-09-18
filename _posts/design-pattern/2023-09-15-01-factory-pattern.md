@@ -1,5 +1,5 @@
 ---
-title:  "Chapter 4. 팩토리 패턴" 
+title:  "Chapter 04. 팩토리 패턴" 
 
 categories:
   -  Design Pattern

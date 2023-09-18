@@ -1,5 +1,5 @@
 ---
-title:  "Chapter 2. 옵저버 패턴" 
+title:  "Chapter 02. 옵저버 패턴" 
 
 categories:
   -  Design Pattern

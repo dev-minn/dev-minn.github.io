@@ -1,5 +1,5 @@
 ---
-title:  "Chapter 1. 전략 패턴" 
+title:  "Chapter 01. 전략 패턴" 
 
 categories:
   -  Design Pattern
