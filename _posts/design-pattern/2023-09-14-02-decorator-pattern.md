@@ -45,7 +45,7 @@ date: 2023-09-14
 - 데코레이터 패턴을 사용하면 자잘한 객체가 매우 많이 추가될 수 있고, 데코레이터를 너무 많이 사용하면 코드가 필요 이상으로 복잡해짐
 
 
-<img src="assets/images/03001.png" witdh="600" height="400">
+<img src="/assets/images/03001.png" witdh="600" height="400">
 
 <br>
 
