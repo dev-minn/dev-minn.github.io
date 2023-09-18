@@ -235,6 +235,7 @@ public class ChocolateController {
 ```
 
 > 실행결과
+
 ```
 empty : false, boil : false
 empty : false, boil : true
@@ -311,6 +312,7 @@ public class ChocolateController {
 ```
 
 > 실행결과
+
 ```
 Creating unique instance of Chocolate Boiler
 Returning instance of Chocolate Boiler
@@ -399,6 +401,7 @@ public class ChocolateController {
 ```
 
 > 실행결과
+
 ```
 singleton.getEmpty(): false
 singleton.getBoiled(): false
