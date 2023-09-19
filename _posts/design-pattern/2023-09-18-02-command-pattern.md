@@ -1,10 +1,10 @@
 ---
-title:  "[헤드퍼스트] Chapter 06. 커맨드 패턴" 
+title:  "Chapter 06. 커맨드 패턴" 
 
 categories:
   -  Design Pattern
 tags:
-  - [Design Pattern]
+  - [Design Pattern, Java]
 
 toc: true
 toc_sticky: true

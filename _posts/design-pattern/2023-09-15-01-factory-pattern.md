@@ -1,10 +1,10 @@
 ---
-title:  "[헤드퍼스트] Chapter 04. 팩토리 패턴" 
+title:  "Chapter 04. 팩토리 패턴" 
 
 categories:
   -  Design Pattern
 tags:
-  - [Design Pattern]
+  - [Design Pattern, Java]
 
 toc: true
 toc_sticky: true
