@@ -575,3 +575,14 @@
     padding-left: 3.25rem
   }
 }
+
+@media (max-width: 63.9375em){
+  .sidebar li{
+     width:100%;
+  }
+  
+  .sidebar li img{
+     max-width:35%;
+  }
+  
+}
