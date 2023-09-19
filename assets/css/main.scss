@@ -26,3 +26,37 @@ a:visited {
 .sidebar p, .sidebar li {
     font-size: .80em;
 }
+
+
+
+
+@media (min-width: 37.5em) {
+    .back_to_top .align-right {
+        float: right;
+        margin-left: 1em;
+    }
+}
+
+
+.back_to_top .align-right {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.back_to_top .btn--primary {
+    background-color: #6f777d;
+    color: #fff;
+}
+.back_to_top .btn {
+    display: inline-block;
+    margin-bottom: 0.25em;
+    padding: 0.5em 1em;
+    font-family: "D2Coding",-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+    font-size: .75em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-width: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
