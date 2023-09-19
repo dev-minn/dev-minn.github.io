@@ -1,5 +1,5 @@
 ---
-title:  "[헤드퍼스트 디자인패턴] Chapter 04. 팩토리 패턴" 
+title:  "[헤드퍼스트] Chapter 04. 팩토리 패턴" 
 
 categories:
   -  Design Pattern

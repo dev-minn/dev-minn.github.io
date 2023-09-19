@@ -1,5 +1,5 @@
 ---
-title:  "[헤드퍼스트 디자인패턴] Chapter 06. 커맨드 패턴" 
+title:  "[헤드퍼스트] Chapter 06. 커맨드 패턴" 
 
 categories:
   -  Design Pattern

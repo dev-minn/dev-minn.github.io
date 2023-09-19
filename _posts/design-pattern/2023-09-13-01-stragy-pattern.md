@@ -1,5 +1,5 @@
 ---
-title:  "[헤드퍼스트 디자인패턴] Chapter 01. 전략 패턴" 
+title:  "[헤드퍼스트] Chapter 01. 전략 패턴" 
 
 categories:
   -  Design Pattern
