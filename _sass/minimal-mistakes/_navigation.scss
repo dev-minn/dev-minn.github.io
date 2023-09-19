@@ -588,10 +588,10 @@
 }
 
 
-.pagination_prev_next {
+.pagination_prev_next a {
   @include clearfix();
   float: left;
-  width: 100%;
+  width: 50%;
 }
   /* next/previous buttons */
   .pagination_prev_next--pager {
@@ -600,7 +600,7 @@
     display: block;
     padding: 1em 2em;
     //float: left;
-    width: 100%;
+    //width: 100%;
     font-family: $sans-serif;
     font-size: $type-size-5;
     font-weight: bold;
@@ -613,5 +613,5 @@
 
 .prev_next {
   font-family: 'D2Coding';
-  color:#ffd861;
+  color:#3d4144;
 }
