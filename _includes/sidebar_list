@@ -19,14 +19,14 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "Design Pattern" %}
-                        <li stlye="font-size: 14px;"><a href="/categories/design-pattern" class="">- Design Pattern [{{category[1].size}}]</a></li>
+                        <li><a href="/categories/design-pattern" class="">- Design Pattern [{{category[1].size}}]</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Git" %}
-                        <li stlye="font-size: 14px;"><a href="/categories/git" class="">- Git [{{category[1].size}}]</a></li>
+                        <li><a href="/categories/git" class="">- Git [{{category[1].size}}]</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
