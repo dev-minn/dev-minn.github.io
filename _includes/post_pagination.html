@@ -19,12 +19,12 @@
     {% if prev_post %}
       <a href="{{ prev_post.url }}" class="pagination_prev_next--pager" title="{{ page.previous.title | markdownify | strip_html }}"><span class="prev_next">◀ &nbsp</span></a>
     {% else %}
-      <a href="#" class="pagination_prev_next--pager disabled"> </a>
+      <a href="#" class="pagination_prev_next--pager disabled">-</a>
     {% endif %}
     {% if next_post %}
       <a href="{{ next_post.url }}" class="pagination_prev_next--pager" title="{{ page.next.title | markdownify | strip_html }}"><span class="prev_next">▶ &nbsp  </span></a>
     {% else %}
-      <a href="#" class="pagination_prev_next--pager disabled"> </a>
+      <a href="#" class="pagination_prev_next--pager disabled">-</a>
     {% endif %}
   </nav>
 {% endif %}
