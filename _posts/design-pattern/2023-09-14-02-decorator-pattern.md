@@ -1,5 +1,5 @@
 ---
-title:  "Chapter 03. 데코레이터 패턴" 
+title:  "[헤드퍼스트 디자인패턴] Chapter 03. 데코레이터 패턴" 
 
 categories:
   -  Design Pattern
