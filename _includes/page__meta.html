@@ -1,4 +1,7 @@
 {% assign document = post | default: page %}
+
+<p><a href="#" class="btn btn--primary align-right">Back to Top</a></p>
+
 {% if document.read_time or document.show_date %}
   <p class="page__meta">
     {% if document.show_date and document.date %}
