@@ -26,4 +26,5 @@ date: 2023-09-21
 ## 📌 참고
 
 >  출처
-- https://kdohyeon.tistory.com/45
+- https://kdohyeon.tistory.com
+- https://jackjeong.tistory.com/
